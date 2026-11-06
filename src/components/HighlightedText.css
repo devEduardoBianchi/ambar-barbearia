@@ -1,0 +1,4 @@
+.highlighted-text { position: relative; display: inline-flex; overflow: hidden; vertical-align: baseline; color: var(--gold); isolation: isolate; }
+.highlighted-text-fill { position: absolute; inset: 0; z-index: -1; background: #c5a56824; }
+.highlighted-text-label { position: relative; padding-inline: .08em; }
+@media (prefers-reduced-motion: reduce) { .highlighted-text .highlighted-text-fill { transform: none; transition: none; } }

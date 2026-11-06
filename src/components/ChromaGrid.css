@@ -1,0 +1,41 @@
+.chroma-grid { width: 100%; }
+.chroma-grid-inner { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 22px; }
+.chroma-card { min-width: 0; padding: 8px; overflow: hidden; border: 1px solid #c5a56840; border-radius: 12px; background: #171815; }
+.chroma-card-entry { min-width: 0; }
+.chroma-card { height: 100%; }
+.chroma-media { aspect-ratio: 1 / 1; overflow: hidden; border-radius: 6px; background: #24251f; }
+.chroma-media img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.chroma-location .chroma-grid-inner { grid-template-columns: 1fr; }
+.chroma-location .chroma-media { aspect-ratio: 2 / 1; }
+.chroma-info { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 20px 10px 16px; }
+.chroma-info .chroma-title { margin: 0; color: var(--text); font-family: var(--display); font-size: clamp(23px, 2vw, 30px); font-weight: 500; line-height: 1.1; letter-spacing: .01em; text-transform: uppercase; }
+.chroma-info .chroma-subtitle { margin: 0; flex-shrink: 0; color: var(--gold); font-family: var(--display); font-size: 29px; line-height: 1; }
+.chroma-review-controls { display: flex; justify-content: flex-end; width: 88%; max-width: 1320px; margin: 0 auto 12px; }
+.chroma-review-pause { min-height: 40px; padding: 8px 12px; border: 1px solid var(--line); border-radius: 6px; background: transparent; color: var(--muted); font: 11px var(--body); cursor: pointer; }
+.chroma-review-pause span { margin-left: 8px; color: var(--gold); }
+.chroma-review-pause:hover { color: var(--text); border-color: var(--gold); }
+.chroma-review-pause:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+.chroma-review-row + .chroma-review-row { margin-top: 18px; }
+.chroma-review-loop { padding-block: 4px; }
+.chroma-review-loop .logoloop__content, .chroma-review-loop .logoloop__node { display: block; }
+.chroma-review-card { width: clamp(280px, 29vw, 360px); min-height: 245px; padding: 24px; display: flex; flex-direction: column; white-space: normal; text-align: left; }
+.chroma-review-person { display: flex; align-items: center; gap: 12px; }
+.chroma-review-person > div { min-width: 0; }
+.chroma-review-card .chroma-review-avatar { position: static; display: block; flex: 0 0 44px; width: 44px; height: 44px; border-radius: 50%; object-fit: cover; }
+.chroma-review-author { color: var(--text); font-size: 12px; font-weight: 600; line-height: 1.5; overflow-wrap: anywhere; }
+.chroma-review-source { display: block; margin-top: 3px; color: var(--muted); font-size: 10px; line-height: 1.5; }
+.chroma-review-rating { display: flex; align-items: center; gap: 10px; margin-top: 20px; color: var(--text); font-size: 12px; }
+.chroma-review-stars { color: #fbbc04; font-size: 15px; letter-spacing: .08em; }
+.chroma-review-card blockquote { margin: 14px 0 20px; color: var(--text); font-size: 14px; line-height: 1.8; }
+.chroma-review-excerpt { margin-top: auto; color: var(--muted); font-size: 10px; line-height: 1.5; }
+@media (prefers-reduced-motion: reduce) {
+  .chroma-review-controls { display: none; }
+  .chroma-review-loop { mask-image: none !important; -webkit-mask-image: none !important; }
+  .chroma-review-loop .logoloop__track { width: 100%; transform: none !important; }
+  .chroma-review-loop .logoloop__list[aria-hidden="true"] { display: none; }
+  .chroma-review-loop .logoloop__list { width: 100%; flex-wrap: wrap; gap: 20px; }
+  .chroma-review-loop .logoloop__item { flex: 1 1 280px; margin: 0; }
+  .chroma-review-card { width: 100%; }
+}
+@media (max-width: 1100px) { .chroma-grid-inner { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 520px) { .chroma-grid-inner { grid-template-columns: 1fr; gap: 20px; } .chroma-info .chroma-title { font-size: 28px; } }
