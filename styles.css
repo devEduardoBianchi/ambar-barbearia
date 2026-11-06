@@ -337,6 +337,13 @@ blockquote { margin: 20px 0 0; }
 .visit-invitation { margin: 14px 0; color: var(--muted); font-size: 13px; line-height: 1.7; }
 .visit-info address { font-size: 13px; font-style: normal; line-height: 1.9; color: var(--muted); }
 .visit-info address strong { color: var(--text); }
+.visit-info { text-align: center; }
+.visit-info > .eyebrow { text-align: left; justify-content: flex-start; }
+.visit-info .visit-facade-card { margin-inline: auto; }
+.visit-info .visit-map-actions { justify-content: center; }
+.visit-info .location-flip-button { margin-inline: auto; }
+.visit-info .location-hours { text-align: center; }
+.visit-info .location-hours .eyebrow { justify-content: center; }
 .visit-map-actions { display: flex; flex-wrap: wrap; gap: 8px 20px; align-items: center; margin-top: 16px; }
 .visit-map-actions .button { min-height: 48px; padding: 14px 20px; font-size: 12px; }
 .visit-map-actions .text-link { margin: 0; font-size: 13px; }
