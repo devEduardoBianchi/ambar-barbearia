@@ -581,7 +581,7 @@ export default function HoloTradingCard({
         {/* Frente */}
         <div className="htc__face htc__front" aria-hidden={flipped}>
           {failed ? (
-            <img className="htc__fallback" src={background} alt="Fachada da Dom Libório" />
+            <img className="htc__fallback" src={background} alt="Fachada da Âmbar" />
           ) : (
             <canvas ref={canvasRef} className="htc__canvas" aria-hidden="true" />
           )}

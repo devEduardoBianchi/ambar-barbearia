@@ -3,3 +3,11 @@ node_modules/
 dist/
 .vite/
 *.tsbuildinfo
+.portfolio-originals/
+barbearia/
+.vercel/
+.env
+.env.*
+!.env.example
+*.log
+coverage/

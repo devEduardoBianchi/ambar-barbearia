@@ -1,0 +1,13 @@
+.git/
+.portfolio-originals/
+.superpowers/
+barbearia/
+node_modules/
+dist/
+coverage/
+.env
+.env.*
+*.log
+output/
+docs/
+security_best_practices_report.md

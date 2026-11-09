@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import LogoLoop from './LogoLoop';
 
-const phrases = ['Corte com identidade', 'Cuidado estético', 'Resenha de amigo', 'Dourados · MS', 'Dom Libório'];
+const phrases = ['Corte com identidade', 'Cuidado estético', 'Resenha de amigo', 'Dourados · MS', 'Âmbar'];
 const items = phrases.map(text => ({
   node: <span className="brand-strip-phrase">{text}<span className="asterisk" aria-hidden="true">✳</span></span>,
 }));
@@ -22,7 +22,7 @@ export default function BrandStrip() {
         fadeOutWidth={0.04}
         intro={false}
         draggable={false}
-        ariaLabel="O clima da Dom Libório"
+        ariaLabel="O clima da Âmbar"
         className="brand-strip-loop"
         renderItem={undefined}
         style={{}}

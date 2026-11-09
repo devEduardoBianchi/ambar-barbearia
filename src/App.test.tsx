@@ -1,59 +1,51 @@
 import { fireEvent, render, screen, within } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
-
-vi.mock('./components/SplitText', () => ({
-  default: ({ text }: { text: string }) => text,
-}));
+vi.mock('./components/SplitText', () => ({ default: ({ text }: { text: string }) => text }));
 vi.mock('./components/SideRays', () => ({ default: () => null }));
-
 import App from './App';
-
-describe('landing page Dom Libório', () => {
-  it('exposes the main promise as one accessible level-one heading', () => {
-    render(<App />);
-
+describe('Ambar fictional portfolio', () => {
+  it('discloses the concept and removes original business details', () => {
+    const { container } = render(<App />);
     expect(screen.getByRole('heading', { level: 1, name: 'Seu estilo. Nosso ofício.' })).toBeInTheDocument();
+    expect(screen.getByText(/Projeto conceitual para portfólio\. Marca, imagens/)).toBeInTheDocument();
+    expect(container.innerHTML).not.toMatch(/lib[oó]rio|caio|wa\.link|cuiab[aá]|79830|125 avaliações/i);
+    expect(container.querySelector('iframe')).toHaveAttribute('src', 'https://maps.google.com/maps?q=Dourados,MS&z=13&output=embed');
   });
-
-  it('shows the four individual services with prices and images', () => {
+  it('shows four fictional service prices and new images', () => {
     render(<App />);
-
-    const grid = screen.getByRole('group', { name: 'Serviços e preços da Dom Libório' });
-    const cards = within(grid).getAllByRole('article');
+    const cards = within(screen.getByRole('group', { name: 'Serviços e preços da Âmbar' })).getAllByRole('article');
     expect(cards).toHaveLength(4);
-    for (const [index, price] of ['R$ 30', 'R$ 35', 'R$ 25', 'R$ 5'].entries()) {
-      expect(within(cards[index]).getByText(price)).toBeInTheDocument();
-      expect(within(cards[index]).getByRole('img')).toHaveAttribute('src', expect.stringMatching(/^\/assets\/services\//));
-    }
-    expect(screen.queryByText('Corte social e barba')).not.toBeInTheDocument();
-    expect(screen.queryByText('Corte degradê e barba')).not.toBeInTheDocument();
+    ['R$ 45', 'R$ 55', 'R$ 35', 'R$ 15'].forEach((price, i) => {
+      expect(within(cards[i]).getByText(price)).toBeInTheDocument();
+      expect(within(cards[i]).getByRole('img')).toHaveAttribute('src', expect.stringMatching(/^\/assets\/portfolio\//));
+    });
   });
-
-  it('links booking calls to WhatsApp and shows the reviewed Google summary', () => {
+  it('labels every testimonial and retains the two rows', () => {
     render(<App />);
-
-    expect(screen.getByRole('link', { name: /agendar pelo whatsapp/i })).toHaveAttribute('href', 'https://wa.link/bmboc0');
-    expect(screen.getByText('125 avaliações no Google')).toBeInTheDocument();
-    const testimonials = screen.getByRole('group', { name: 'Depoimentos de clientes' });
-    const cards = within(testimonials).getAllByRole('article');
+    const group = screen.getByRole('group', { name: 'Depoimentos de clientes' });
+    expect(within(group).getAllByRole('region', { name: /Avaliações — fileira/ })).toHaveLength(2);
+    const cards = within(group).getAllByRole('article');
     expect(cards).toHaveLength(11);
-    expect(within(testimonials).getAllByRole('region', { name: /Avaliações — fileira/ })).toHaveLength(2);
-    const authors = cards.map(card => card.querySelector('.chroma-review-author')?.textContent);
-    expect(new Set(authors).size).toBe(11);
-    expect(authors).toEqual(expect.arrayContaining(['Allan Postaue Santos', 'Allax Ribeiro', 'Samuel Navarro', 'Marcelo Marques', 'Pedro Abreu', 'Victor Bezerra']));
-    for (const card of cards) {
-      expect(within(card).getByRole('img', { name: '5 de 5 estrelas' })).toBeInTheDocument();
-      expect(within(card).getByText('Trecho de avaliação no Google')).toBeInTheDocument();
-    }
+    for (const card of cards) expect(within(card).getByText('Exemplo fictício para portfólio')).toBeInTheDocument();
+    expect(screen.getByText('Depoimentos fictícios para portfólio')).toBeInTheDocument();
   });
-  it('reveals the opening hours and lets visitors return to the storefront', () => {
+  it('opens a demo dialog instead of a real contact', () => {
     render(<App />);
-    expect(screen.queryByRole('heading', { name: /Nosso hor.rio/ })).not.toBeInTheDocument();
-    fireEvent.click(screen.getByRole('button', { name: /Ver hor.rios de atendimento/ }));
-    expect(screen.getByRole('heading', { name: /Nosso hor.rio/ })).toBeInTheDocument();
-    fireEvent.click(screen.getByRole('button', { name: /Voltar para a fachada/ }));
-    expect(screen.queryByRole('heading', { name: /Nosso hor.rio/ })).not.toBeInTheDocument();
+    const dialog = document.querySelector('dialog')!;
+    const showModal = vi.fn(() => dialog.setAttribute('open', ''));
+    Object.defineProperty(dialog, 'showModal', { value: showModal, configurable: true });
+    const contact = screen.getByRole('link', { name: /Agendar pelo WhatsApp/i });
+    expect(contact).toHaveAttribute('href', '#demonstracao');
+    fireEvent.click(contact);
+    expect(showModal).toHaveBeenCalledOnce();
+    expect(screen.getByRole('dialog')).toHaveTextContent('barbearia fictícia');
   });
-
+  it('reveals the sample timetable and returns to the facade', () => {
+    render(<App />);
+    expect(screen.queryByRole('heading', { name: /Nosso horário/ })).not.toBeInTheDocument();
+    fireEvent.click(screen.getByRole('button', { name: /Ver horários de atendimento/ }));
+    expect(screen.getByRole('heading', { name: /Nosso horário/ })).toBeInTheDocument();
+    fireEvent.click(screen.getByRole('button', { name: /Voltar para a fachada/ }));
+    expect(screen.queryByRole('heading', { name: /Nosso horário/ })).not.toBeInTheDocument();
+  });
 });
-

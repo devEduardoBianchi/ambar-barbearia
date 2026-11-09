@@ -1,9 +1,0 @@
-# Fotos adicionais dos avaliadores
-
-Modo: image_gen integrado. Recriações conservadoras de avatares visíveis no Google Maps; a nota sobre IA permanece na seção. Fontes: Fernando Morais (104298561651843013012) e Sheriff Dom Falcone do Texas! (105083227881532918396).
-
-## public/assets/reviewers/fernando-morais.png
-Use case: identity-preserve. Edit target: ONLY the tiny circular avatar beside the name "Fernando Morais" in the supplied Google Maps screenshot. It is the uppermost profile photo, near x112 y78, a tilted close-up face. Restore that exact photograph into a square 1:1 website avatar. Preserve person, pose, framing, clothing, background, expression. Conservative enhancement, retain blur and shadows where detail is unrecoverable; do not invent face details, beautify, change identity or brighten a dark source to reveal imagined features. Remove circular border and all surrounding text, stars, map, Google interface. Output only the avatar image, no text or new objects.
-
-## public/assets/reviewers/sheriff-dom.png
-Use case: identity-preserve. Edit target: ONLY the tiny circular avatar beside the name "Sheriff Dom Falcone do Texas!" in the supplied Google Maps screenshot. It is the second profile photo, near x112 y337, a dark photograph of a person wearing dark clothing. Keep its dark original framing and do not invent a new close-up. Restore that exact photograph into a square 1:1 website avatar. Preserve person, pose, framing, clothing, background, expression. Conservative enhancement, retain blur and shadows where detail is unrecoverable; do not invent face details, beautify, change identity or brighten a dark source to reveal imagined features. Remove circular border and all surrounding text, stars, map, Google interface. Output only the avatar image, no text or new objects.

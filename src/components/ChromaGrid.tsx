@@ -31,11 +31,11 @@ function ReviewRows({ items }: { items: ReviewItem[] }) {
       <ChromaCard className="chroma-review-card">
         <div className="chroma-review-person">
           <img className="chroma-review-avatar" src={review.avatar || reviewerAvatar(review.author)} alt="" title={review.avatar ? 'Foto de perfil recriada com IA a partir do print' : undefined} width="44" height="44" loading="lazy" />
-          <div><p className="chroma-review-author">{review.author}</p><span className="chroma-review-source">Avaliação no Google</span></div>
+          <div><p className="chroma-review-author">{review.author}</p><span className="chroma-review-source">Depoimento ilustrativo</span></div>
         </div>
         <div className="chroma-review-rating"><span className="chroma-review-stars" role="img" aria-label="5 de 5 estrelas">★★★★★</span><span>5,0</span></div>
         <blockquote>“{review.quote}”</blockquote>
-        <p className="chroma-review-excerpt">Trecho de avaliação no Google</p>
+        <p className="chroma-review-excerpt">Exemplo fictício para portfólio</p>
       </ChromaCard>
     ),
   }))), [items]);
@@ -79,7 +79,7 @@ export default function ChromaGrid(props: ChromaGridProps) {
   const { items } = props;
   const location = props.variant === 'location';
   return (
-    <div ref={root} className={`chroma-grid${location ? ' chroma-location' : ''}`} role="group" aria-label={location ? 'Fachada da Dom Libório' : 'Serviços e preços da Dom Libório'} aria-describedby={location ? undefined : 'services-note'}>
+    <div ref={root} className={`chroma-grid${location ? ' chroma-location' : ''}`} role="group" aria-label={location ? 'Fachada da Âmbar' : 'Serviços e preços da Âmbar'} aria-describedby={location ? undefined : 'services-note'}>
       <div className="chroma-grid-inner">
         {items.map(item => (
           <div className={location ? 'chroma-location-entry' : 'chroma-card-entry'} key={item.title}>
