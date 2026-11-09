@@ -47,7 +47,7 @@ Documentação oficial: [Vite na Vercel](https://vercel.com/docs/frameworks/fron
 - WhatsApp e Instagram abrem um aviso de demonstração, sem contas reais conectadas.
 - O mapa mostra apenas Dourados–MS; o endereço da barbearia é fictício.
 - Nomes, depoimentos e notas são exemplos, sem vínculo com o Google ou clientes reais.
-- Logo, fachada, galeria e serviços usam imagens geradas com imagegen. Prompts: `output/imagegen/portfolio-prompts.md`.
+- Logo, fachada, galeria e serviços usam imagens geradas com imagegen. Prompts: `output/portfolio-prompts.md`.
 - Não há agenda, pagamento nem cadastro de clientes conectado.
 - Assets novos: `public/assets/portfolio/`. O fundo atmosférico da hero também é uma imagem ilustrativa gerada.
 - `.portfolio-originals/` guarda arquivos antigos localmente e é ignorada pelo Git. `.vercelignore` também exclui arquivos locais do envio pela CLI.
